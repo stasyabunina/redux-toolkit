@@ -3,7 +3,8 @@ import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getMovieDetail } from '../features/movieDetail/getMovieDetail';
 import MovieDetail from '../features/movieDetail/MovieDetail';
-import { Loading } from 'react-daisyui';
+import Loader from '../components/Loader';
+
 
 function MoviePage() {
     const dispatch = useDispatch();
@@ -16,7 +17,7 @@ function MoviePage() {
 
     return (
         <>
-            {movie.isLoading ? <div className='p-20 w-full flex justify-center'><Loading /></div> : <MovieDetail item={movie.details} />}
+            {movie.isLoading ? <Loader /> : <MovieDetail item={movie.details} />}
         </>
     );
 }

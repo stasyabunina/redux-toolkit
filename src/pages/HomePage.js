@@ -4,6 +4,7 @@ import MovieList from '../components/MovieList';
 import Search from '../features/search/Search';
 import Error from '../components/Error';
 import { Loading } from 'react-daisyui';
+import Loader from '../components/Loader';
 
 function HomePage() {
     const search = useSelector(state => state.search);
@@ -12,7 +13,7 @@ function HomePage() {
         if (search.error) {
             return (<Error text={search.error} />)
         } else {
-            return (search.searchList.length !== 0 ? <MovieList items={search.searchList} isSearch='true' /> : search.isLoading ? <div className='p-20 w-full flex justify-center'><Loading /></div> : <></>)
+            return (search.searchList.length !== 0 ? <MovieList items={search.searchList} isSearch='true' /> : search.isLoading ? <Loader /> : <></>)
         }
     }
 

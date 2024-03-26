@@ -9,10 +9,8 @@ function FavoriteAlert() {
     const favorites = useSelector(state => state.favorites);
 
     useEffect(() => {
-        if (didRender) {
-            handleToast()
-        }
-    }, [didRender, favorites]); 
+        didRender && handleToast()
+    }, [didRender, favorites]);
 
     const handleToast = () => {
         setAlerts(alerts => [...alerts, {
